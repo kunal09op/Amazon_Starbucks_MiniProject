@@ -5,16 +5,6 @@ namespace AmazonMiniProject
 {
     class Program
     {
-
-        /* string querystring = "Select * from Products";
-             con.Open();
-             SqlCommand cmd = new SqlCommand(querystring, con);
-             SqlDataReader reader = cmd.ExecuteReader();
-             while (reader.Read())
-             {
-                 Console.WriteLine(reader[0].ToString() + " " + reader[1].ToString() + " " + reader[2].ToString());
-             }
-             con.Close();*/
         static string ConString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=TestDBB;Integrated Security=True;Pooling=False";
         SqlConnection con = new SqlConnection(ConString);
 
@@ -288,17 +278,6 @@ namespace AmazonMiniProject
 
 
 
-                /*
-                string querystring = "Select * from Customers";
-                con.Open();
-                SqlCommand cmd = new SqlCommand(querystring, con);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    Console.WriteLine(reader[0].ToString() + " " + reader[1].ToString() + " " + reader[2].ToString());
-                }
-                con.Close();*/
-
             }
             catch (Exception e)
             {
@@ -344,7 +323,7 @@ namespace AmazonMiniProject
         
         public void bill(int order_id)
         {
-            string querystring = "Select * from Customer_Orders";
+            string querystring = "Select * from Customer_Orders where order_id ="+order_id+"";
             con.Open();
             SqlCommand cmd = new SqlCommand(querystring, con);
             SqlDataReader reader = cmd.ExecuteReader();
